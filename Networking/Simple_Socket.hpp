@@ -25,13 +25,18 @@ namespace sde
         // Default Constructor
         Simple_Socket(int domain , int service , int protocol , int port , u_long interface);
 
+        // Virtual Funtion 
         virtual int connect_to_network(int sock , struct sockaddr_in address) = 0;
         
         void test_connection(int);
 
+        // Getter Functions
         struct sockaddr_in get_address();
         int get_sock();
         int get_connection();
+
+        // Setter Functions
+        void set_connection(int con);
     };
        
 }

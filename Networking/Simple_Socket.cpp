@@ -19,9 +19,6 @@ sde::Simple_Socket::Simple_Socket(int domain , int service , int protocol , int 
     // running the variable will not 'exist' anymore
     sock = socket(domain , service , protocol);
     test_connection(sock);
-    
-    connection = connect_to_network(sock , address);
-    test_connection(connection);
 }
 
 // Test Connection Virtual Function
@@ -35,6 +32,7 @@ void sde::Simple_Socket::test_connection(int to_test)
     
 }
 
+// Getter Function
 struct sockaddr_in sde::Simple_Socket::get_address()
 {
     return address;
@@ -48,4 +46,10 @@ int sde::Simple_Socket::get_sock()
 int sde::Simple_Socket::get_connection()
 {
     return connection;
+}
+
+// Setter Function
+void sde::Simple_Socket::set_connection(int con)
+{
+    connection = con;
 }
